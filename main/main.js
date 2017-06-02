@@ -1,17 +1,59 @@
-const loadAllItems = require('./loadAllItems.js');
+function loadAllItems() {
+    return [
+        {
+            barcode: 'ITEM000000',
+            name: '可口可乐',
+            unit: '瓶',
+            price: 3.00
+        },
+        {
+            barcode: 'ITEM000001',
+            name: '雪碧',
+            unit: '瓶',
+            price: 3.00
+        },
+        {
+            barcode: 'ITEM000002',
+            name: '苹果',
+            unit: '斤',
+            price: 5.50
+        },
+        {
+            barcode: 'ITEM000003',
+            name: '荔枝',
+            unit: '斤',
+            price: 15.00
+        },
+        {
+            barcode: 'ITEM000004',
+            name: '电池',
+            unit: '个',
+            price: 2.00
+        },
+        {
+            barcode: 'ITEM000005',
+            name: '方便面',
+            unit: '袋',
+            price: 4.50
+        }
+    ];
+}
+
+var a=loadAllItems();
+
 
 module.exports = function main(inputs) {
    
     var num=[];
-    for(let k=0;k<loadAllItems.length;k++)
+    for(let k=0;k<a.length;k++)
     {
     	num[k]=0;
     }
     for(var i=0;i<inputs.length;i++)
     {
-      for(var j=0;j<loadAllItems.length;j++)
+      for(var j=0;j<a.length;j++)
       {
-        if(inputs[i]==loadAllItems[j].barcode)
+        if(inputs[i]==a[j].barcode)
         {
         	num[j]++;
         }
@@ -19,12 +61,12 @@ module.exports = function main(inputs) {
     }
     var txtt= '***<没钱赚商店>购物清单***\n' ;
     var summ=0;
-    for(let k=0;k<loadAllItems.length;k++)
+    for(let k=0;k<a.length;k++)
     {
     	if(num[k]!==0)
     	{
-            txtt=txtt+`名称：${loadAllItems[k].name}数量：${k}${loadAllItems[k].unit}，单价：${loadAllItems[k].price}(元)，小计：${(loadAllItems[k].price)*k}(元)\n`;
-            summ=summ+(loadAllItems[k].price)*k;
+            txtt=txtt+`名称：${a[k].name}数量：${k}${a[k].unit}，单价：${a[k].price}(元)，小计：${(a[k].price)*k}(元)\n`;
+            summ=summ+(a[k].price)*k;
     	}
     }
     txtt=txtt+'----------------------\n' +
@@ -32,3 +74,4 @@ module.exports = function main(inputs) {
             '**********************';
   	return txtt;
 };
+
