@@ -3,7 +3,7 @@ const loadAllItems = require('./loadAllItems.js');
 module.exports = function main(inputs) {
    
     var num=[];
-    for(let k=0;k<loadAllItems;k++)
+    for(let k=0;k<loadAllItems.length;k++)
     {
     	num[k]=0;
     }
@@ -19,7 +19,7 @@ module.exports = function main(inputs) {
     }
     var txtt= '***<没钱赚商店>购物清单***\n' ;
     var summ=0;
-    for(let k=0;k<loadAllItems;k++)
+    for(let k=0;k<loadAllItems.length;k++)
     {
     	if(num[k]!==0)
     	{
