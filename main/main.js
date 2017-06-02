@@ -65,7 +65,7 @@ module.exports = function main(inputs) {
     {
     	if(num[k]!==0)
     	{
-            txtt=txtt+`名称：${a[k].name}，数量：${num[k]}${a[k].unit}，单价：${a[k].price.toFixed(2)}(元)，小计：${(a[k].price)*num[k].toFixed(2)}(元)\n`;
+            txtt=txtt+`名称：${a[k].name}，数量：${num[k]}${a[k].unit}，单价：${a[k].price.toFixed(2)}(元)，小计：${((a[k].price)*num[k]).toFixed(2)}(元)\n`;
             summ=summ+(a[k].price)*k;
     	}
     }
